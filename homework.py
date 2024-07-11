@@ -50,9 +50,7 @@ def check_tokens():
                      'TELEGRAM_TOKEN': TELEGRAM_TOKEN,
                      'TELEGRAM_CHAT_ID': TELEGRAM_CHAT_ID
                      }
-    no_variables = []
-    [no_variables.append(name)
-     for name, value in env_variables.items() if not value]
+    no_variables = [name for name, value in env_variables.items() if not value]
     if no_variables:
         no_variables = ', '.join(no_variables)
         raise NoEnvVarError(
